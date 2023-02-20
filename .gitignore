@@ -1,0 +1,26 @@
+# Supabase
+src/Supabase/bin
+src/Supabase/obj
+src/Supabase/.idea
+src/Supabase/*.DotSettings.user
+
+# SupabaseExample
+src/SupabaseExample/bin
+src/SupabaseExample/obj
+src/SupabaseExample/.idea
+src/SupabaseExample/*.DotSettings.user
+
+# vscode
+.vscode
+
+# idea
+.idea
+
+# .ionide
+.ionide
+.fake
+
+# MacOS
+.DS_Store
+
+*.DotSettings.user
