@@ -1,7 +1,7 @@
-﻿open Postgrest.Common
-open Supabase
+﻿open Supabase
 open GoTrue
 open Postgrest
+open Postgrest.Common
 
 let client = initialize "https://<project-id>.supabase.co" "<api-key>"
 
