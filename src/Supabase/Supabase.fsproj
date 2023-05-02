@@ -1,12 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
+
+    <!-- FSharp.Formatting (fsdocs) start -->
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Authors>Samuel Dubovec</Authors>
+    <FsDocsLicenseLink>https://github.com/Samo8/supabase-fsharp/blob/develop/LICENSE</FsDocsLicenseLink>
+    <FsDocsLogoSource>../content/img/logo.jpeg</FsDocsLogoSource>
+    <PackageProjectUrl>..</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Samo8/supabase-fsharp</RepositoryUrl>
+    <RepositoryBranch>develop</RepositoryBranch>
+    <UsesMarkdownComments>true</UsesMarkdownComments>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Library.fs" />
+    <Compile Include="SupabaseClient.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../../postgrest-fsharp/src/Postgrest/Postgrest.fsproj" />
+    <ProjectReference Include="../../../gotrue-fsharp/src/GoTrue\GoTrue.fsproj" />
+    <ProjectReference Include="../../../realtime-fsharp/src/Realtime\Realtime.fsproj" />
+    <ProjectReference Include="../../../storage-fsharp/src/Storage\Storage.fsproj" />
+    <ProjectReference Include="../../../functions-fsharp/src/Functions\Functions.fsproj" />
+    <PackageReference Include="Websocket.Client" Version="4.6.1" />
   </ItemGroup>
 
 </Project>

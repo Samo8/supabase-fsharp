@@ -20,6 +20,9 @@ src/SupabaseExample/*.DotSettings.user
 .ionide
 .fake
 
+#docs
+.fsdocs
+
 # MacOS
 .DS_Store
 
