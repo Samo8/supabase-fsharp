@@ -4,7 +4,6 @@ open System.Text.RegularExpressions
 open Functions.Connection
 open GoTrue.Connection
 open Postgrest.Connection
-open Realtime.Connection
 open Storage.Connection
 
 /// Contains connections for all client libraries and initialization functions
@@ -16,7 +15,6 @@ module SupabaseClient =
           ApiKey:              string
           PostgrestConnection: PostgrestConnection
           GoTrueConnection:    GoTrueConnection
-          RealtimeConnection:  RealtimeConnection
           StorageConnection:   StorageConnection  
           FunctionConnection:  FunctionsConnection }
         
@@ -26,7 +24,6 @@ module SupabaseClient =
           mutable ApiKey:              string
           mutable PostgrestConnection: PostgrestConnection
           mutable GoTrueConnection:    GoTrueConnection
-          mutable RealtimeConnection:  RealtimeConnection
           mutable StorageConnection:   StorageConnection
           mutable FunctionConnection:  FunctionsConnection }
     
@@ -75,9 +72,6 @@ module SupabaseClient =
                 url     goTrueUrl
                 headers initialHeaders
             }
-            RealtimeConnection = realtimeConnection {
-                yield realtimeUrl, (Map ["apiKey", apiKey])
-            }
             StorageConnection = storageConnection {
                 url    storageUrl
                 headers initialHeaders
@@ -91,24 +85,20 @@ module SupabaseClient =
     /// Adds given token to headers of connections
     let withAuth (bearer: string) (client: Client): Client =
         let postgrestConnection = Postgrest.Common.updateBearer bearer client.PostgrestConnection
-        let realtimeConnection = Realtime.Common.updateBearer bearer client.RealtimeConnection
         let storageConnection = Storage.Common.updateBearer bearer client.StorageConnection
         let functionConnection = Functions.Common.updateBearer bearer client.FunctionConnection
         
         { client with
             PostgrestConnection = postgrestConnection
-            RealtimeConnection  = realtimeConnection
             StorageConnection   = storageConnection
             FunctionConnection  = functionConnection }
         
     /// Adds given token to headers of connections for `MutableClient`
     let withAuthMutable (bearer: string) (client: MutableClient): unit =
         let postgrestConnection = Postgrest.Common.updateBearer bearer client.PostgrestConnection
-        let realtimeConnection = Realtime.Common.updateBearer bearer client.RealtimeConnection
         let storageConnection = Storage.Common.updateBearer bearer client.StorageConnection
         let functionConnection = Functions.Common.updateBearer bearer client.FunctionConnection
         
         client.PostgrestConnection <- postgrestConnection
-        client.RealtimeConnection  <- realtimeConnection
         client.StorageConnection   <- storageConnection
         client.FunctionConnection  <- functionConnection

@@ -22,7 +22,6 @@
   <ItemGroup>
     <ProjectReference Include="../../../postgrest-fsharp/src/Postgrest/Postgrest.fsproj" />
     <ProjectReference Include="../../../gotrue-fsharp/src/GoTrue\GoTrue.fsproj" />
-    <ProjectReference Include="../../../realtime-fsharp/src/Realtime\Realtime.fsproj" />
     <ProjectReference Include="../../../storage-fsharp/src/Storage\Storage.fsproj" />
     <ProjectReference Include="../../../functions-fsharp/src/Functions\Functions.fsproj" />
     <PackageReference Include="Websocket.Client" Version="4.6.1" />
