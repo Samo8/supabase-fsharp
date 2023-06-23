@@ -2,17 +2,40 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
+    <PackOnBuild>true</PackOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>supabase-fsharp</PackageId>
+    <Authors>Samuel Dubovec</Authors>
+    <Copyright>MIT</Copyright>
+    <ReleaseVersion>0.0.1</ReleaseVersion>
+    <PackageVersion>0.0.1</PackageVersion>
+
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Owners>Samuel Dubovec &lt;samodubovec@gmail.com&gt;</Owners>
+    <Title>supabase-fsharp</Title>
+    <Summary>A F# client for Supabase</Summary>
+    <Description>A F# client for Supabase</Description>
+    <PackageIcon>logo.jpeg</PackageIcon>
+    <PackageTags>supabase, fsharp</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
 
     <!-- FSharp.Formatting (fsdocs) start -->
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Authors>Samuel Dubovec</Authors>
-    <FsDocsLicenseLink>https://github.com/Samo8/supabase-fsharp/blob/develop/LICENSE</FsDocsLicenseLink>
+    <Authors>Samuel Dubovec &lt;samodubovec@gmail.com&gt;</Authors>
+    <FsDocsLicenseLink>https://github.com/supabase-community/supabase-fsharp/blob/develop/LICENSE</FsDocsLicenseLink>
     <FsDocsLogoSource>../content/img/logo.jpeg</FsDocsLogoSource>
     <PackageProjectUrl>..</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/Samo8/supabase-fsharp</RepositoryUrl>
+    <RepositoryUrl>https://github.com/supabase-community/supabase-fsharp</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/supabase-community/supabase-fsharp</PackageProjectUrl>
     <RepositoryBranch>develop</RepositoryBranch>
     <UsesMarkdownComments>true</UsesMarkdownComments>
+    <!-- FSharp.Formatting (fsdocs) end -->
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,11 +43,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../../../postgrest-fsharp/src/Postgrest/Postgrest.fsproj" />
-    <ProjectReference Include="../../../gotrue-fsharp/src/GoTrue\GoTrue.fsproj" />
-    <ProjectReference Include="../../../storage-fsharp/src/Storage\Storage.fsproj" />
-    <ProjectReference Include="../../../functions-fsharp/src/Functions\Functions.fsproj" />
+    <PackageReference Include="postgrest-fsharp" Version="0.0.1" />
+    <PackageReference Include="gotrue-fsharp" Version="0.0.1" />
+    <PackageReference Include="supabase-storage-fsharp" Version="0.0.1" />
+    <PackageReference Include="functions-fsharp" Version="0.0.1" />
     <PackageReference Include="Websocket.Client" Version="4.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\docs\content\img\logo.jpeg" Pack="true" Link="logo.jpeg" PackagePath="\" />
+    <None Include="..\..\README.md" Pack="true" Link="README.md" PackagePath="\" />
   </ItemGroup>
 
 </Project>
